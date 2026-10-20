@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<OutputType>Library</OutputType>
+		<RootNamespace>LongerBelts</RootNamespace>
+		<AssemblyName>LongerBelts</AssemblyName>
+		<TargetFramework>net472</TargetFramework>
+		<Deterministic>true</Deterministic>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<RestoreAdditionalProjectSources>https://nuget.bepinex.dev/v3/index.json</RestoreAdditionalProjectSources>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<Version>1.6.1</Version>
+		<Authors>shisang_makuwa; cat-yummi (CatAPI port)</Authors>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="BepInEx.Core" Version="5.4.17" />
+		<PackageReference Include="BepInEx.PluginInfoProps" Version="1.0.0" />
+		<PackageReference Include="UnityEngine.Modules" Version="2022.3.53" IncludeAssets="compile" />
+		<PackageReference Include="DysonSphereProgram.GameLibs" Version="*-*" />
+		<ProjectReference Include="..\CatAPI\plugin\CatAPI.csproj" Private="false" />
+		<ProjectReference Include="..\CatUIPanel\CatUIPanel.csproj" Private="false" />
+	</ItemGroup>
+	<PropertyGroup>
+		<ProfileDir Condition=" '$(ProfileDir)' == '' ">$(APPDATA)\r2modmanPlus-local\DysonSphereProgram\profiles\CatAPI</ProfileDir>
+		<DeployDir>$(ProfileDir)\BepInEx\plugins\cat_yummi-$(AssemblyName)</DeployDir>
+	</PropertyGroup>
+	<Target Name="DeployToProfile" AfterTargets="Build" Condition="Exists('$(ProfileDir)')">
+		<Copy SourceFiles="$(TargetPath)" DestinationFolder="$(DeployDir)" Retries="0" ContinueOnError="WarnAndContinue" />
+	</Target>
+</Project>
