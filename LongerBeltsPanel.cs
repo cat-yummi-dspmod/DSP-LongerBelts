@@ -15,17 +15,19 @@ namespace LongerBelts
 
         public static void Register()
         {
-            Translate t = Translate.NewTexture();
+            Translate t = Translate.Create();
             UIPanel.RegisterPage(PageKey, "加长传送带", "Longer Belts")
-                .AddCheckbox(LongerBeltsPlugin.LongerOnGrid, t.ifLongerOnGrid, t.ifLongerOnGrid)
-                .AddSlider(LongerBeltsPlugin.LongitudeDistance, MinGrid, MaxGrid, t.longitudeDistance, t.longitudeDistance, 3)
-                .AddSlider(LongerBeltsPlugin.LatitudeDistance, MinGrid, MaxGrid, t.latitudeDistance, t.latitudeDistance, 3)
-                .AddSlider(LongerBeltsPlugin.CurrentDistance, MinDistance, MaxDistance, t.distance_setting, t.distance_setting, 6)
-                .AddSelection(LongerBeltsPlugin.DistanceUnits, t.distance_units, t.distance_units, t.distance_unitsStrings, t.distance_unitsStrings)
-                .AddSelection(LongerBeltsPlugin.IsometricSegmentation, t.pathMode, t.pathMode, t.pathModeStrings, t.pathModeStrings)
-                .AddLabel(t.WarningNotice, t.WarningNotice)
-                .AddCheckbox(LongerBeltsPlugin.ShortestUnlimit, t.unlimit_distance_instruction, t.unlimit_distance_instruction)
-                .AddFloatField(LongerBeltsPlugin.CurrentDistance, LooseMin, LooseMax, t.unlimit_distance_setting, t.unlimit_distance_setting, 6);
+                .AddCheckbox(LongerBeltsPlugin.LongerOnGrid, t.IfLongerOnGridZh, t.IfLongerOnGridEn)
+                .AddSlider(LongerBeltsPlugin.LongitudeDistance, MinGrid, MaxGrid, t.LongitudeDistanceZh, t.LongitudeDistanceEn, 3)
+                .AddSlider(LongerBeltsPlugin.LatitudeDistance, MinGrid, MaxGrid, t.LatitudeDistanceZh, t.LatitudeDistanceEn, 3)
+                .AddSlider(LongerBeltsPlugin.CurrentDistance, MinDistance, MaxDistance, t.DistanceSettingZh, t.DistanceSettingEn, 6)
+                .AddSwitch(LongerBeltsPlugin.DistanceUnits, t.DistanceUnitsZh, t.DistanceUnitsEn,
+                    t.SwitchLeftZh, t.SwitchLeftEn, t.SwitchRightZh, t.SwitchRightEn)
+                .AddSelection(LongerBeltsPlugin.IsometricSegmentation, t.PathModeZh, t.PathModeEn,
+                    t.PathModeOptionsZh, t.PathModeOptionsEn)
+                .AddLabel(t.WarningNoticeZh, t.WarningNoticeEn)
+                .AddCheckbox(LongerBeltsPlugin.ShortestUnlimit, t.UnlimitInstructionZh, t.UnlimitInstructionEn)
+                .AddFloatField(LongerBeltsPlugin.CurrentDistance, LooseMin, LooseMax, t.UnlimitSettingZh, t.UnlimitSettingEn, 6);
 
             HookConfigSync();
         }

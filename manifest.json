@@ -1,11 +1,11 @@
 {
   "name": "LongerBelts",
-  "version_number": "1.6.1",
+  "version_number": "1.6.4",
   "website_url": "https://github.com/cat-yummi-dspmod/DSP-LongerBelts",
   "description": "Longer conveyor belt spacing (faithful port of makuwa's LongerBelts). | 加长传送带间距（莳槡 makuwa 原版忠实移植）。",
   "dependencies": [
     "xiaoye97-BepInEx-5.4.17",
     "cat_yummi-CatAPI-0.2.4",
-    "cat_yummi-CatUIPanel-0.0.4"
+    "cat_yummi-CatUIPanel-0.0.7"
   ]
 }

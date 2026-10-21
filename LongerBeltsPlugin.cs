@@ -14,7 +14,7 @@ namespace LongerBelts
     {
         public const string PluginGuid = "shisang_LongerBelts";
         public const string PluginName = "LongerBelts";
-        public const string PluginVersion = "1.6.1";
+        public const string PluginVersion = "1.6.4";
 
         private const float MinGrid = 1.0f;
         private const float MaxGrid = 3.0f;

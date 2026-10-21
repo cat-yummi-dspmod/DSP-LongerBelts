@@ -1,63 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LongerBelts
+﻿namespace LongerBelts
 {
-	class Translate
-	{
-		public string ifLongerOnGrid;
-		public string longitudeDistance;
-		public string latitudeDistance;
-		public string distance_setting;
-		public string distance_units;
-		public string[] distance_unitsStrings = {"米", "格(赤道)" };
-		public string pathMode;
-		public string[] pathModeStrings = { "原版升降逻辑(水平移动一格后每节升降0.5层至目标高度)", "\"均匀\"升降(端点不水平，常规游戏需先在两端拉好水平带\n建议配合如建筑铺设无条件等放宽传送带铺设条件的功能使用)" };
-		public string WarningNotice;
-		public string unlimit_distance_instruction;
-		public string unlimit_distance_setting;
-		public string resize_window;
-		static public Translate NewTexture()
-		{
-			Translate texture = new Translate();
-			if(Localization.isZHCN)
-			{
-				texture.ifLongerOnGrid = "更改经纬线模式默认跨度";
-				texture.longitudeDistance = "沿经线时跨度";
-				texture.latitudeDistance = "沿纬线时跨度";
-				texture.distance_setting = "最大间距设置";
-				texture.distance_units = "单位:";
-				texture.distance_unitsStrings[0] = "米";
-				texture.distance_unitsStrings[1] = "格(赤道)";
-				texture.pathMode = "传送带路径";
-				texture.pathModeStrings[0] = "原版升降逻辑(水平移动一格后每节升降0.5层至目标高度)";
-				texture.pathModeStrings[1] = "垂直等距分割(端点不水平，常规游戏需先在两端拉好水平带\n建议配合如建筑铺设无条件等放宽传送带铺设条件的功能使用)";
-				texture.WarningNotice = "下列功能慎用!";
-				texture.unlimit_distance_instruction = "勾选以启用弱约束间距输入框(常规游戏中会出现传送带过短或过长等错误\n即使使用无条件铺设也可能触发特殊bug,造出的蓝图也未必能用)";
-				texture.unlimit_distance_setting = "弱约束间距输入框(配合铺设无条件作弊、测试用):";
-				texture.resize_window = ""; // TODO
-			}
-			else
-			{
-				texture.ifLongerOnGrid = "Change default span in gridline mode";
-				texture.longitudeDistance = "Latitude Span";
-				texture.latitudeDistance = "Longitude Span";
-				texture.distance_setting = "Maximum Spacing(unit: meters, not grid)";
-				texture.distance_units = "Units:";
-				texture.distance_unitsStrings[0] = "meters";
-				texture.distance_unitsStrings[1] = "Grid(At equator)";
-				texture.pathMode = "Belt Path Mode";
-				texture.pathModeStrings[0] = "Original elevating logic(moving horizontally one grid and changing\nelevation by 0.5 units per segment to reach the target height)";
-				texture.pathModeStrings[1] = "Vertical equidistant(horizontal conveyor belts at both ends \n or other auxiliary mods are required)";
-				texture.WarningNotice = "Exercise caution when modifying the following settings!";
-				texture.unlimit_distance_instruction = "Check to enable the following input box(certain numbers can lead\nto errors such as belts being too short or too long during vanilla game.)";
-				texture.unlimit_distance_setting = "Maximum Spacing(less constraints)";
-				texture.resize_window = ""; // TODO
-            }
-			return texture;
-		}
-	}
+    /// <summary>猫猫面板用中英双语文案（构建 UI 时由 CatUIPanel.L10n 按游戏语言选取）。</summary>
+    internal sealed class Translate
+    {
+        public string IfLongerOnGridZh;
+        public string IfLongerOnGridEn;
+        public string LongitudeDistanceZh;
+        public string LongitudeDistanceEn;
+        public string LatitudeDistanceZh;
+        public string LatitudeDistanceEn;
+        public string DistanceSettingZh;
+        public string DistanceSettingEn;
+        public string DistanceUnitsZh;
+        public string DistanceUnitsEn;
+        public string SwitchLeftZh;
+        public string SwitchLeftEn;
+        public string SwitchRightZh;
+        public string SwitchRightEn;
+        public string PathModeZh;
+        public string PathModeEn;
+        public string[] PathModeOptionsZh;
+        public string[] PathModeOptionsEn;
+        public string WarningNoticeZh;
+        public string WarningNoticeEn;
+        public string UnlimitInstructionZh;
+        public string UnlimitInstructionEn;
+        public string UnlimitSettingZh;
+        public string UnlimitSettingEn;
+
+        public static Translate Create()
+        {
+            return new Translate
+            {
+                IfLongerOnGridZh = "更改经纬线模式默认跨度",
+                IfLongerOnGridEn = "Change default span in gridline mode",
+                LongitudeDistanceZh = "沿经线时跨度",
+                LongitudeDistanceEn = "Latitude Span",
+                LatitudeDistanceZh = "沿纬线时跨度",
+                LatitudeDistanceEn = "Longitude Span",
+                DistanceSettingZh = "最大间距设置",
+                DistanceSettingEn = "Maximum Spacing (unit: meters, not grid)",
+                DistanceUnitsZh = "单位:",
+                DistanceUnitsEn = "Units:",
+                SwitchLeftZh = "米",
+                SwitchLeftEn = "meters",
+                SwitchRightZh = "格",
+                SwitchRightEn = "Grid",
+                PathModeZh = "传送带路径",
+                PathModeEn = "Belt Path Mode",
+                PathModeOptionsZh = new[]
+                {
+                    "原版升降逻辑(水平移动一格后每节升降0.5层至目标高度)",
+                    "垂直等距分割(端点不水平，常规游戏需先在两端拉好水平带\n建议配合如建筑铺设无条件等放宽传送带铺设条件的功能使用)"
+                },
+                PathModeOptionsEn = new[]
+                {
+                    "Original elevating logic (move one grid horizontally, then 0.5 elevation per segment)",
+                    "Vertical equidistant (needs horizontal belts at both ends; may need relaxed belt placement mods)"
+                },
+                WarningNoticeZh = "下列功能慎用!",
+                WarningNoticeEn = "Exercise caution when modifying the following settings!",
+                UnlimitInstructionZh =
+                    "勾选以启用弱约束间距输入框(常规游戏中会出现传送带过短或过长等错误\n即使使用无条件铺设也可能触发特殊bug,造出的蓝图也未必能用)",
+                UnlimitInstructionEn =
+                    "Check to enable the input below (some values cause belts too short/long in vanilla; blueprints may break)",
+                UnlimitSettingZh = "弱约束间距输入框(配合铺设无条件作弊、测试用):",
+                UnlimitSettingEn = "Maximum Spacing (less constraints)"
+            };
+        }
+    }
 }

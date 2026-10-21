@@ -9,7 +9,7 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<RestoreAdditionalProjectSources>https://nuget.bepinex.dev/v3/index.json</RestoreAdditionalProjectSources>
 		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		<Version>1.6.1</Version>
+		<Version>1.6.4</Version>
 		<Authors>shisang_makuwa; cat-yummi (CatAPI port)</Authors>
 		<LangVersion>latest</LangVersion>
 		<PlatformTarget>x64</PlatformTarget>
